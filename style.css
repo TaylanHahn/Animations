@@ -1,0 +1,66 @@
+@charset "utf-8";
+
+body{
+    animation: gradient 5s infinite alternate;
+    background: linear-gradient(45deg, red,pink,yellow, orange) no-repeat;
+    /* background-image: url(https://cdn.pixabay.com/photo/2021/01/08/13/38/road-5899921_1280.png); */
+    /* background-size: cover; */
+    height: 100vh;
+    background-size: 300% 300%;
+    background-position: top;
+    overflow: hidden; /*tira as barras de rolagem*/
+}
+
+img{
+    width: 250px;
+    position: absolute;
+    bottom: 5px;
+    /*Configurando a animação:
+    animation-name: move;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out; 
+    ease suaviza o movimento da animação.
+    — o ease-in é no início.
+    — o ease-out é no final.
+    — o ease-in-out suaviza no início e no final.
+    
+    animation-delay: .5s; —— cria um delay para que a animação só comece a partir .5 segundos após carregar o site
+
+    animation-iteration-count: infinite; —— Número de vezes que a animação irá repetir
+
+    animation-direction: alternate-reverse; —— Fará o carrinho ir e voltar, ou seja, alterna a animação
+
+    animation-fill-mode: both; —— Faz a animação ir e voltar ao início.
+
+    animation-play-state: running; —— Faz ela "correr" e interaje com o img:hover paused, para que quando a gente coloque o mouse em cima do carrinho, ele pare. */
+
+    animation: move 5s ease-in-out .5s infinite alternate-reverse running; /*Todos códigos acima podem e foram resumidos somente nesta linha, respeitando a ordem.*/
+}
+
+img:hover{
+    animation-play-state: paused;
+}
+
+
+@keyframes move {
+    from{
+        transform: translateX(0);
+    }
+
+    to{
+        transform: translateX(calc(100vw - 250px)); /*esse -250 é para o carrinho não sumir na ponta, mas calcular o tamamho dele e parar*/
+    }
+    
+}
+
+
+@keyframes gradient {
+    from{
+        background-position: 0 50%;
+    }
+
+    to{
+        background-position: 100% 50%;
+    }
+    
+}
